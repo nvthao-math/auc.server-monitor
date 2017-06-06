@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<pool-config>
+    <maxTotal>10000</maxTotal>
+    <maxIdle>10000</maxIdle>
+    <minIdle>100</minIdle>
+    <testOnBorrow>true</testOnBorrow>
+    <testOnReturn>true</testOnReturn>
+    <testWhileIdle>true</testWhileIdle>
+    <minEvictableIdleTimeMillis>60000</minEvictableIdleTimeMillis>
+    <timeBetweenEvictionRunsMillis>30000</timeBetweenEvictionRunsMillis>
+    <numTestsPerEvictionRun>60</numTestsPerEvictionRun>
+    <blockWhenExhausted>true</blockWhenExhausted>
+    <maxWaitMillis>20000</maxWaitMillis>
+</pool-config>

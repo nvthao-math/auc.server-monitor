@@ -1,0 +1,497 @@
+Android	Chrome Mobile	Lenovo A2010-a
+Android	UC Browser	SM-G361H
+Android	Opera Mobile	SM-J710F
+Windows 7	IE	Desktop
+Android	Chrome Mobile	SM-G313HZ
+Android	Chrome Mobile	Lenovo S650
+Android	UC Browser	vi; Q-Smart_QS16
+Android	Chrome Mobile	SAMSUNG GT-I9152
+Android	Chrome Mobile	Q7_PLUS
+Linux	Chromium	Desktop
+Android	Chrome Mobile	SAMSUNG SM-J320G
+Android	Chrome Mobile	HUAWEI Y625-U32
+Android	Chrome Mobile	1201
+Android	Chrome Mobile	SAMSUNG SM-J320H
+Android	Android	SM-G313HZ
+Android	Android	GT-P3100
+Android	Chrome Mobile	SAMSUNG SM-N920C
+Android	Chrome Mobile	SAMSUNG-SM-G925A
+Windows	Opera	Desktop
+Android	Chrome	Masstel Tab 1000
+Android	Chrome Mobile	ASUS_Z00VD
+Mac OS X	Chrome	Desktop
+Android	Chrome Mobile	SM-A310F
+Android	Android	Desktop
+Android	Chrome Mobile	SM-J500H
+Android	Chrome Mobile	SM-J510FN
+Android	Chrome	SAMSUNG SM-P555
+Android	UC Browser	Lenovo A6000
+Android	Chrome Mobile	D6503
+Android	Chrome Mobile	SM-G570Y
+Android	Chrome	Lenovo A7600-H
+Android	Chrome Mobile	GT-S7580
+Android	Chrome Mobile	SUNSET2
+Android	Chrome Mobile	R2001
+Android	Chrome Mobile	D6502
+Android	UC Browser	SM-G360H
+Android	Chrome	SM-P355
+Android	Chrome Mobile	Desktop
+Android	Chrome Mobile	E5333
+Android	Chrome Mobile	LG-D325
+Android	Chrome	T1 7.0
+Android	Chrome	Lenovo TB3-710I
+Android	Chrome Mobile	Z00D
+Android	Chrome Mobile	mobiistar LAI ZORO 2
+Android	Chrome Mobile	Lumia 550
+Android	Chrome Mobile	D6653
+Android	Chrome Mobile	D5322
+Android	Android	Lumia 430
+Android	Chrome Mobile	CHC-U01
+Android	Android	Lumia 435
+Android	Chrome Mobile	Coolpad E502
+Android	Chrome Mobile	SM-G928C
+Android	Chrome Mobile	Coolpad E501
+Android	Android	SonyEricssonLT18i
+Android	Chrome Mobile	SM-N900
+Android	Chrome Mobile	Lumia 435
+Android	Chrome Mobile	C6606
+Android	Chrome Mobile	SM-G361H
+Android	Chrome Mobile	C6603
+Android	Chrome Mobile	SM-A300H
+Windows Vista	Firefox	Desktop
+Android	Chrome Mobile	SAMSUNG SM-G920K/KKU3DQA1
+Android	Chrome Mobile	SM-N916K
+Android	Chrome Mobile	SM-A300M
+Android	Chrome Mobile	GT-S7560
+Android	Chrome Mobile	R1011
+Android	Chrome Mobile	mobiistar LAI Z1
+Android	Android	Lumia 540
+Android	Chrome Mobile	LG-F320S
+Android	Chrome Mobile	HUAWEI CUN-U29
+Android	UC Browser	SM-G925F
+Android	Chrome Mobile	LG-F320L
+Android	Chrome	UIMI-F6
+Android	Chrome Mobile	LG-X145
+Android	Chrome Mobile	E6683
+Android	Android	GT-S7560
+Android	Chrome Mobile	Lumia 535
+Android	Chrome Mobile	Lenovo PB1-750M
+Android	Chrome Mobile	InFocus M560
+Android	Chrome Mobile	SM-G720N0
+Android	Chrome Mobile	VITA
+Android	Chrome Mobile	HUAWEI LUA-U22
+Android	Chrome Mobile	R1001
+Android	Android	Lumia 530
+Android	UC Browser	F1w
+Windows	Chrome	Desktop
+Android	Android	Lumia 535
+Windows RT	IE	Lumia 620
+Android	Chrome Mobile	vivo V1Max
+Android	Android	Lumia 532
+Android	Chrome Mobile	vivo Y31
+Android	UC Browser	SM-J500H
+Android	Opera Mobile	A37f
+Android	Android	Lumia 525
+Android	Chrome Mobile	ASUS_Z00RD
+Android	Chrome Mobile	LG-D410
+Android	Chrome Mobile	SM-E700H
+Android	Chrome Mobile	F1w
+Android	Android	Nokia 1320
+Android	Chrome Mobile	SM-J710F
+Android	Android	Lumia 640
+Android	Android	Lumia 520
+Android	Chrome	SM-P555
+Android	Chrome Mobile	Lumia 640
+Windows RT	IE	Lumia 630
+Android	Chrome Mobile	Philips_S398
+Android	Chrome Mobile	IM-A840S
+Windows Vista	Chrome	Desktop
+Android	Chrome Mobile	SM-G360H
+Android	Chrome	Nexus 7
+Android	Android	Lumia 635
+Windows 7	Chrome	Desktop
+Android	Chrome	SAMSUNG SM-T705
+Android	Chrome Mobile	mobiistar_LAI_Zumbo
+Android	Chrome Mobile	SM-G900H
+Android	Chrome Mobile	SAMSUNG SM-J3119
+Android	Android	GT-S7580
+Android	Chrome Mobile	SM-G900F
+Android	Android	Lumia 630
+Android	Chrome Mobile	INNO_7
+Android	Chrome Mobile	vivo Y51
+Android	Chrome Mobile	SHV-E330S
+Android	Chrome Mobile	CAM-L21
+Android	Chrome Mobile	SAMSUNG SM-G935L
+Android	Chrome Mobile	mobiistar BUDDY
+Android	Chrome Mobile	SHV-E210L
+Android	Chrome	m3 note
+Android	Chrome Mobile	SHV-E210K
+Android	Chrome Mobile	SM-G935U
+Android	Chrome Mobile	SAMSUNG SM-G935F
+Android	Chrome Mobile	Nokia_Xplus
+Android	Chrome Mobile	SM-G935P
+Android	Chrome Mobile	SM-G9008W
+Android	Chrome Mobile	GT-I9082
+Android	Opera Mobile	NokiaX2DS
+Android	Chrome Mobile	SM-J700H
+Android	Chrome Mobile	Kashi inni 6s
+Android	Chrome Mobile	SM-G925F
+Android	Chrome Mobile	SAMSUNG SM-G925F
+Windows 7	Firefox	Desktop
+Windows RT	IE	Lumia 730
+Android	Chrome Mobile	SM-G920T1
+Android	Android	Lumia 620
+Android	Chrome Mobile	vivo Y55
+Android	Chrome Mobile	SAMSUNG SM-G900H
+Android	Chrome Mobile	SHV-E330L
+Android	Chrome Mobile	BLL-L22
+Android	Chrome Mobile	SM-G900S
+Android	Chrome	Lenovo A3000-H
+Windows 8	Chrome	Desktop
+Windows Phone	IE Mobile	Lumia 520
+Android	Chrome Mobile	SAMSUNG SHV-E300L
+Ubuntu	Firefox	Desktop
+Windows RT	IE	Lumia 540
+Android	Chrome Mobile	Masstel N506
+Windows Phone	IE Mobile	Lumia 525
+Android	UC Browser	SM-J710F
+Android	Chrome Mobile	Lumia 730
+Android	Chrome Mobile	SM-A500H
+Android	Chrome Mobile	HUAWEI KII-L21
+Android	Chrome Mobile	Masstel_N500C
+Windows XP	Chrome	Desktop
+Android	Chrome Mobile	Massgo_Vi5_Plus
+Android	Chrome Mobile	SM-N910C
+Windows Phone	IE Mobile	Lumia 532
+Android	Android	Lumia 625H
+Windows Phone	IE Mobile	Lumia 530
+Android	Chrome	SM-A500H
+Android	Chrome Mobile	Philips_S358
+Windows RT	IE	Lumia 430
+Windows Phone	IE Mobile	Lumia 535
+Android	Chrome Mobile	HTC D620h
+Android	Chrome Mobile	SM-N910P
+Windows RT	IE	Lumia 435
+Android	Chrome Mobile	SM-N910S
+Android	Chrome Mobile	X9006
+Android	Chrome Mobile	X9009
+Android	Chrome Mobile	Masstel N405
+Android	Chrome Mobile	Masstel N403
+Android	Chrome Mobile	SM-G530H
+Android	Chrome Mobile	SM-J105B
+Android	Chrome Mobile	SM-J3119
+Android	Android	GT-N7000
+Android	Chrome Mobile	Lenovo P1ma40
+Android	Chrome	SM-T530NU
+Android	Chrome Mobile	mobiistar_KOOL_Lite
+Windows RT	IE	Lumia 640
+Android	Chrome Mobile	Lumia 950
+Android	Chrome Mobile	SAMSUNG SM-G928C
+Android	Chrome Mobile	SM-N9200
+Android	Chrome Mobile	SM-N750
+Windows RT	IE	Lumia 525
+Android	Chrome Mobile	SM-N9208
+Android	Chrome Mobile	Philips W3500
+Windows 7	Maxthon	Desktop
+Android	Chrome Mobile	SM-N920C
+Android	Android	SPH-L300
+Android	UC Browser	1201
+Android	Chrome Mobile	LG-F400K
+Windows Phone	IE Mobile	Lumia 430
+Android	Chrome Mobile	Crown
+Android	Chrome Mobile	Nokia_X
+Android	Chrome	SM-J700H
+Android	Chrome Mobile	RAINBOW
+Android	Chrome Mobile	IM-A850S
+Windows RT	IE	Lumia 535
+Android	Chrome Mobile	MI MAX
+Android	Chrome Mobile	vivo 1601
+Android	Chrome Mobile	SM-N920S
+Android	Chrome Mobile	ASUS_Z010D
+Linux	Chrome	Desktop
+Android	Chrome Mobile	Masstel N660
+Android	Android	GT-I9190
+Android	Opera Mobile	X9009
+Android	Android	Lenovo P770
+Android	Chrome Mobile	ASUS_Z007
+Android	Chrome Mobile	Lumia 930
+Windows 7	Opera	Desktop
+Android	Chrome Mobile	ASUS_Z002
+Android	Chrome Mobile	CHM-UL00
+Android	Chrome Mobile	LT29i
+Windows	IE	Desktop
+Android	Chrome Mobile	HTC One
+Android	Chrome Mobile	6P
+Android	Chrome Mobile	LG-K220
+Android	Chrome Mobile	SM-G355H
+Android	Chrome Mobile	SAMSUNG SM-N9005
+Android	Android	ASUS_T00J
+Android	Chrome Mobile	C1905
+Android	Chrome Mobile	Hero40i
+Android	Chrome Mobile	SHV-E300S
+Android	Chrome Mobile	Lenovo A6020a46
+Android	Chrome Mobile	LG-D802
+Windows XP	Firefox	Desktop
+Android	Chrome Mobile	vivo V3
+Android	Chrome Mobile	SAMSUNG SM-N750
+Android	Chrome Mobile	SAMSUNG-SGH-I537
+Android	Chrome	MediaPad T1 8.0
+Android	Chrome Mobile	MI 4LTE
+iOS	Chrome Mobile iOS	iPhone
+Android	Chrome Mobile	ALCATEL ONE TOUCH 5036D
+Android	Chrome Mobile	GOA
+Android	Chrome Mobile	ASUS_Z00LD
+Android	Chrome Mobile	SM-N9005
+BlackBerry OS	BlackBerry WebKit	BlackBerry Kbd
+Android	Chrome Mobile	SF1
+Android	Chrome Mobile	SAMSUNG SM-J500H
+Android	Android	SM-G360H
+Android	Chrome Mobile	SAMSUNG SM-G570Y
+Android	Chrome Mobile	Redmi Note 4
+Android	Chrome Mobile	SM-A510F
+Android	Chrome Mobile	Philips S309
+Android	Chrome Mobile	Redmi Note 2
+Android	Chrome Mobile	Redmi Note 3
+Android	Chrome Mobile	SAMSUNG SM-A510F
+Android	Android	SM-T111
+Android	Chrome Mobile	IM-A870S
+Android	Chrome Mobile	SM-N900K
+Android	Chrome Mobile	HTC Desire
+Android	Chrome Mobile	SM-N900L
+Android	Chrome Mobile	OS 2
+Windows	Firefox	Desktop
+Android	Chrome Mobile	SM-N900S
+Android	Chrome Mobile	SM-N900T
+Android	Chrome Mobile	mobiistar_LAI_Yuna
+Android	Chrome Mobile	IM-A870L
+Android	Chrome Mobile	InFocus M810t
+Android	UC Browser	SM-G610F
+Android	Chrome	TX5
+Android	Chrome	SM-T113NU
+Android	Chrome Mobile	Lenovo K50-t5
+iOS	Chrome Mobile iOS	iPad
+Android	Chrome Mobile	SM-G610F
+Android	Chrome Mobile	CPH1605
+Android	Chrome	A1601
+Android	Chrome	R1001
+Android	Chrome Mobile	UIMI F5
+Android	Chrome Mobile	SAMSUNG SM-J200GU
+Android	Chrome Mobile	SAMSUNG SM-A500H
+Other	Other	Spider
+Android	Chrome Mobile	R8106
+Android	Chrome	SAMSUNG SM-T231
+Android	Chrome Mobile	SM-J120H
+Android	Chrome Mobile	S1
+Android	Chrome Mobile	SM-A800I
+Android	Chrome Mobile	Lenovo A7000-a
+Android	Chrome Mobile	SM-G6000
+Android	UC Browser	GT-I9505
+Android	Chrome Mobile	SM-A800F
+Windows 7	Safari	Desktop
+Android	Chrome Mobile	SAMSUNG SM-G530H
+Android	Android	SHV-E160L
+Android	Android	F55
+Android	Chrome Mobile	SM-A9100
+Android	Chrome Mobile	Lenovo A6000
+Android	UC Browser	V5
+Android	Android	R827
+Android	Chrome Mobile	ASUS_X003
+Linux	Opera	Desktop
+Linux	Safari	Desktop
+Android	Chrome Mobile	A51w
+Android	Chrome	Kindle Fire
+Android	Chrome Mobile	IM-A890S
+Android	Chrome Mobile	RAINBOW LITE
+Android	Chrome Mobile	X8414
+Android	Chrome Mobile	X8417
+Android	UC Browser	Redmi Note 3
+Windows RT	IE	Lumia 625H
+Other	IE	Desktop
+Android	Chrome Mobile	R831K
+Android	Chrome Mobile	mobiistar
+Android	UC Browser	LG-F160
+Android	UC Browser	SM-J120H
+Android	Chrome Mobile	F3216
+Android	Chrome Mobile	SAMSUNG SM-A7100
+Android	UC Browser	Lenovo S660
+Android	Chrome Mobile	5054S
+Android	Chrome Mobile	SM-J200GU
+Android	UC Browser	PULP
+Android	Chrome	SM-T231
+Android	Chrome Mobile	SM-A710F
+Android	UC Browser	SM-P355
+Android	UC Browser	P4
+Android	Safari	Desktop
+Android	Chrome Mobile	E2312
+Android	Chrome Mobile	SM-A710K
+Android	Chrome Mobile	GT-I9500
+Windows 8.1	Chrome	Desktop
+Android	Chrome Mobile	Lenovo A7010a48
+Android	Chrome Mobile	SAMSUNG SM-J7109
+Android	Chrome Mobile	SAMSUNG SM-A710F
+Android	Chrome Mobile	R7kf
+Windows Phone	IE Mobile	Lumia 730
+Android	Chrome Mobile	A33w
+Android	Chrome Mobile	LG-K500
+Android	Chrome Mobile	D2502
+Android	Chrome Mobile	SM-J100H
+Android	Chrome Mobile	L-01F
+Android	Chrome Mobile	E2303
+Android	Chrome Mobile	BLOOM
+Android	Android	C2305
+Android	Chrome Mobile	A110
+Android	Chrome	A1-713
+Android	Chrome Mobile	Lenovo P70-A
+Android	Chrome Mobile	N526
+Android	Chrome Mobile	Masstel_N668
+Android	Android	F10
+Android	Chrome Mobile	CHM-U01
+Windows Phone	IE Mobile	Lumia 625H
+Android	Chrome Mobile	LG-F180
+Android	Android	ALCATEL ONETOUCH P310A
+Android	Chrome	SM-T116NU
+Android	Android	Nokia 525
+Android	Chrome Mobile	Masstel N456
+Android	Chrome Mobile	SM-A700H
+Android	Chrome Mobile	SM-G531H
+Android	Chrome Mobile	SAMSUNG SM-G531H
+Windows Phone	IE Mobile	Lumia 630
+Linux	Firefox	Desktop
+Android	Chrome Mobile	P6
+Android	Chrome Mobile	GT-I8552
+Android	UC Browser	A33w
+Android	Chrome Mobile	SAMSUNG SM-J700H
+Android	Chrome Mobile	Lenovo A5000
+Android	Chrome Mobile	SM-J320H
+Android	Chrome Mobile	SM-J320G
+Windows Phone	IE Mobile	Lumia 635
+Android	Chrome Mobile	HTC D820mu
+Android	Android	HTC
+Android	Chrome	SM-T585
+Android	Chrome Mobile	UIMI-F6
+Android	Chrome	Tab2A7-10F
+Android	Chrome Mobile	SAMSUNG SM-G532G
+Android	Chrome Mobile	W-F101
+Android	Chrome Mobile	SM-G532G
+Windows XP	IE	Desktop
+Android	Chrome Mobile	LG-H540
+Android	Chrome	TXCZ-SDK
+Mac OS X	Safari	Desktop
+BlackBerry OS	BlackBerry WebKit	BlackBerry 9900
+Windows 8.1	Firefox	Desktop
+Android	UC Browser	SM-J100H
+Android	Android	Lumia 730
+Android	Chrome Mobile	SAMSUNG SM-G610F
+Android	Chrome Mobile	E2353
+Android	Chrome	SM-T555
+Android	Chrome Mobile	R7plusf
+Android	Chrome Mobile	E2115
+Android	Chrome	K019
+Android	Chrome Mobile	6S Plus
+Android	Chrome Mobile	GT-N7100
+Android	Chrome Mobile	R815
+Android	Chrome Mobile	SM-G935F
+Android	Chrome Mobile	D2305
+BlackBerry OS	BlackBerry WebKit	BlackBerry Touch
+Android	UC Browser	Nokia_X
+Android	Chrome Mobile	SHV-E250S
+Android	Chrome Mobile	HTC One E
+Android	Chrome Mobile	HTC One A
+Android	Android	Lumia 720
+Android	Chrome Mobile	SM-G350
+Windows Phone	IE Mobile	Nokia 1320
+Android	Chrome Mobile	SM-G9350
+Android	Chrome Mobile	HTC One S
+Android	Chrome Mobile	Lenovo A516
+Android	Chrome Mobile	SM-G920F
+Android	Chrome Mobile	GT-S7392
+Android	Chrome Mobile	HUAWEI Y541-U02
+Android	UC Browser	SM-G355H
+Android	Android	GT-I8552
+Android	Android	Philips W3509
+Android	Chrome Mobile	F3116
+Android	UC Browser	SM-J320G
+Android	Chrome Mobile	SM-G9208
+Android	Chrome Mobile	A37f
+Android	Android	Lumia 830
+Android	Chrome Mobile	SAMSUNG SM-J510FN
+Android	Chrome Mobile	GETAWAY
+Android	Chrome Mobile	mobiistar_LAI_Zoro
+Windows 8.1	Opera	Desktop
+Android	Chrome	SM-T531
+Android	Chrome Mobile	m3 note
+Android	Chrome Mobile	SM-E500H
+Android	Chrome Mobile	Mobiistar_LAI_Z
+Android	Chrome Mobile	A11w
+Android	Chrome Mobile	GT-I8190
+Android	UC Browser	ASUS_Z007
+Android	Android	Lumia 820
+Android	Chrome Mobile	A1601
+Android	Safari	HTC Desire
+Android	Chrome Mobile	Lenovo A850
+Other	FacebookBot	Desktop
+Android	Opera Mobile	F1w
+Android	Chrome Mobile	SM-G920P
+iOS	UC Browser	iPhone
+Android	Chrome Mobile	SM-G920I
+Android	Chrome Mobile	SM-G930F
+Android	Chrome Mobile	D5503
+Windows XP	Opera	Desktop
+Android	Android	GT-I9300
+Windows 8	Firefox	Desktop
+Android	Chrome Mobile	NICE S
+Android	Chrome Mobile	LG-H502
+Windows Phone	IE Mobile	HTC
+Android	Chrome	SF1
+Android	Chrome Mobile	GT-I8262
+Android	Chrome Mobile	C6906
+Android	Chrome Mobile	C6903
+Android	Chrome Mobile	E5663
+Android	Android	Lumia 925
+Android	Chrome Mobile	ALE-L21
+Android	Chrome Mobile	R7sf
+Android	Chrome Mobile	GT-I9100
+Android	Chrome Mobile	ASUS_T00Q
+Android	Android	Lumia 920
+Android	Chrome	B1-723
+Android	Chrome Mobile	ASUS_T00J
+Android	Chrome Mobile	A33fw
+Android	Android	LG-E612
+Android	Chrome	HP Slate 10 HD
+Android	Chrome Mobile	Lenovo A390_ROW
+Android	Chrome	HUAWEI KII-L21
+Android	Chrome Mobile	ASUS_T00F
+Android	Chrome Mobile	ASUS_T00G
+Android	Chrome Mobile	ASUS_Z008D
+Android	Chrome Mobile	nova_i7
+Android	Chrome Mobile	D6616
+Android	Chrome Mobile	ASUS_X014D
+Android	Chrome Mobile	SAMSUNG SM-G7102
+Android	Chrome Mobile	SM-G318HZ
+Android	Android	GT-P5110
+Android	Chrome Mobile	SAMSUNG SM-J120H
+Android	Chrome Mobile	GT-I9301I
+Android	Chrome Mobile	IM-A900S
+Android	Chrome Mobile	SHV-E250L
+Android	Android	SHW-M440S
+Android	Opera Mobile	A1601
+Android	Opera Mobile	Nokia_XL
+Android	Chrome Mobile	SM-G7102
+Windows 8.1	IE	Desktop
+iOS	Mobile Safari	iPad
+Android	Chrome Mobile	E5563
+Android	Chrome Mobile	N590
+Android	Chrome Mobile	D6603
+Android	Chrome	SM-T561Y
+Android	Chrome Mobile	R8001
+Android	Chrome	K012
+Android	Chrome Mobile	Coolpad A118
+Android	Chrome Mobile	Nokia_XL
+Android	Chrome	K016
+iOS	Mobile Safari	iPhone
+Android	Chrome Mobile	X8610
+Android	Chrome Mobile	R829
+Android	Chrome Mobile	LG-F460S
+Android	Chrome Mobile	Philips V387
+Android	Chrome Mobile	RAINBOW JAM
+Android	Chrome Mobile	R827

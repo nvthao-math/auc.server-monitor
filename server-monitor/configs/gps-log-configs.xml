@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<cluster>
+    <inode>
+        <log-data>/home/cpu10869-local/workspace/data/speed-profiles/speed-profiles-20130528-to-20150319.csv</log-data>
+        <log-base>/home/cpu10869-local/workspace/data/speed-profiles/</log-base>
+    </inode>
+</cluster>
