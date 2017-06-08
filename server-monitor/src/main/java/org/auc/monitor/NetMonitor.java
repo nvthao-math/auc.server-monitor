@@ -6,7 +6,7 @@
 package org.auc.monitor;
 
 import org.auc.core.utils.BashExecutor;
-import org.auc.core.utils.CommonUtils;
+import org.auc.core.utils.EUtils;
 import org.auc.monitor.bash.NetBash;
 import org.auc.monitor.dao.NetInfo;
 
@@ -23,7 +23,7 @@ public class NetMonitor {
         while (true) {
             long t1 = System.currentTimeMillis();
             NetInfo netInfo = getInfo();
-            System.out.println(CommonUtils.toJson(netInfo));
+            System.out.println(EUtils.toJson(netInfo));
             try {
                 Thread.sleep(1000l);
             } catch (Exception ex) {

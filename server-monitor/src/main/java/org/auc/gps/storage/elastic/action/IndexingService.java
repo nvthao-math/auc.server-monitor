@@ -8,7 +8,7 @@ package org.auc.gps.storage.elastic.action;
 import java.util.List;
 import org.auc.core.data.structure.ConcurrentSet;
 import org.auc.core.file.utils.Logger;
-import org.auc.core.utils.CommonUtils;
+import org.auc.core.utils.EUtils;
 import org.auc.gps.speed.model.SpeedModel;
 import org.auc.gps.storage.elastic.model.IndexType;
 import org.elasticsearch.action.admin.indices.create.CreateIndexResponse;
@@ -45,7 +45,7 @@ public class IndexingService {
                 INDICES.add(index);
             }
             for (SpeedModel model : models) {
-                bulkRequest.add(client.prepareIndex(index, IndexType.SPEED.toString()).setSource(CommonUtils.toJson(model)));
+                bulkRequest.add(client.prepareIndex(index, IndexType.SPEED.toString()).setSource(EUtils.toJson(model)));
                 count++;
                 if (count % BATCH == 0 || count == models.size()) {
                     bulkRequest.setRefresh(true);

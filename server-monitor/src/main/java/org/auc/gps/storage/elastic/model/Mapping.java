@@ -7,7 +7,7 @@ package org.auc.gps.storage.elastic.model;
 
 import java.util.HashMap;
 import java.util.Map;
-import org.auc.core.utils.CommonUtils;
+import org.auc.core.utils.EUtils;
 
 /**
  *
@@ -51,7 +51,7 @@ public class Mapping {
     }
 
     public static void main(String[] args) {
-        System.out.println(CommonUtils.toJson(Mapping.Fields.get(Field.ALL, false)));
+        System.out.println(EUtils.toJson(Mapping.Fields.get(Field.ALL, false)));
     }
 
 }

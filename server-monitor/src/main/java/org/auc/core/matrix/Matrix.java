@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import org.auc.core.utils.CommonUtils;
+import org.auc.core.utils.EUtils;
 
 /**
  *
@@ -42,7 +42,7 @@ public class Matrix {
         int[][] matrix = new int[rows][size];
         for (int i = 0; i < rows; i++) {
             List<Integer> temp = toBinary(i, size);
-            System.out.println(CommonUtils.toJson(temp));
+            System.out.println(EUtils.toJson(temp));
             for (int j = 0; j < temp.size(); j++) {
                 matrix[i][j] = temp.get(j);
             }

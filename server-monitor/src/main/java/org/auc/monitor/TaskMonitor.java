@@ -9,7 +9,7 @@ import java.util.TimerTask;
 import org.auc.monitor.bash.TaskBash;
 import org.auc.monitor.dao.TaskInfo;
 import org.auc.core.utils.BashExecutor;
-import org.auc.core.utils.CommonUtils;
+import org.auc.core.utils.EUtils;
 import org.auc.core.file.utils.Logger;
 import org.auc.core.utils.NumberUtils;
 
@@ -53,7 +53,7 @@ public class TaskMonitor extends TimerTask {
     @Override
     public void run() {
         TaskInfo taskInfo = getTaskInfo();
-        System.out.println(CommonUtils.toJson(taskInfo));
+        System.out.println(EUtils.toJson(taskInfo));
     }
 
 }

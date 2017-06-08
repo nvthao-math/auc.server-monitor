@@ -11,7 +11,7 @@ import org.auc.monitor.cluster.configs.RedisConfigs;
 import org.auc.core.file.utils.Logger;
 import org.auc.core.model.FileMonitorModel;
 import org.auc.core.redis.utils.RedisExecutor;
-import org.auc.core.utils.CommonUtils;
+import org.auc.core.utils.EUtils;
 import org.auc.gps.config.LogConfig;
 
 /**
@@ -47,7 +47,7 @@ public class MapToInstance {
         FileMonitorModel model = new FileMonitorModel(LogConfig.SPEED_LOG);
         System.out.println(model.getLineOnDisk());
         try {
-            Map<String, String> mapPersit = CommonUtils.instanceToMap(model);
+            Map<String, String> mapPersit = EUtils.instanceToMap(model);
             System.out.println(mapPersit);
             boolean is =  Double.class.isInstance(mapPersit.get("lineOnDisk"));
             System.out.println(is);

@@ -5,15 +5,18 @@
  */
 package org.auc.gps.speed;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import org.auc.core.utils.EUtils;
 
 /**
  *
  * @author thaonv
  */
-public class TaskConfig {
+public class JobConfig {
 
-    public static TaskConfig TASK;
+    public static JobConfig TASK;
     private String jobName;
     private String fromTime;
     private String endTime;
@@ -21,12 +24,29 @@ public class TaskConfig {
     private boolean realtime;
 
     // constructor
-    public TaskConfig() {
+    public JobConfig() {
         super();
     }
 
-    public static void initialize(TaskConfig task) {
-        TASK = task;
+    public static void initialize(String parameter) {
+        TASK = new JobConfig();
+        Map<String, String> map = EUtils.string2Map(parameter, EUtils.COMMA, String.class, String.class);
+        for (String key : map.keySet()) {
+            if ("jobName".equals(key)) {
+                TASK.setJobName(map.get(key));
+            } else if ("fromTime".equals(key)) {
+                TASK.setFromTime(map.get(key));
+            } else if ("endTime".equals(key)) {
+                TASK.setEndTime(map.get(key));
+            } else if ("synchTo".equals(key)) {
+                TASK.setSynchTo(Arrays.asList(map.get(key).split(EUtils.UNDER_SCORE)));
+            } else if ("realtime".equals(key)) {
+                TASK.setRealtime(Boolean.parseBoolean(map.get(key)));
+            } else {
+                // ignore
+            }
+        }
+
     }
 
     public static String jobName() {

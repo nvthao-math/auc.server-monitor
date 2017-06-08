@@ -7,8 +7,8 @@ package org.auc.gps.job;
 
 import java.lang.reflect.Constructor;
 import org.auc.core.file.utils.Logger;
-import org.auc.core.utils.CommonUtils;
-import org.auc.gps.speed.TaskConfig;
+import org.auc.core.utils.EUtils;
+import org.auc.gps.speed.JobConfig;
 
 /**
  *
@@ -17,30 +17,32 @@ import org.auc.gps.speed.TaskConfig;
 public class JobExecutor {
 
     private static final String TAG = JobExecutor.class.getSimpleName();
+    private static final String COLON = ":";
 
     public static void main(String[] args) {
         long t1 = System.currentTimeMillis();
-        String config = "{\"jobName\":\"read-speed-profiles\",\"fromTime\":\"2017-03-23-00\",\"endTime\":\"2017-03-23-23\",\"synchTo\":[\"elastic\",\"csv\",\"parquet\"],\"realtime\":false}";
-        args = new String[]{"main-class", "org.auc.gps.speed.SpeedProfileBatchConcurrentReader", "config", config};
+        String config = "jobName=read-speed-profiles,fromTime=2017-03-23-00,endTime=2017-03-23-23,synchTo=elastic_csv_parquet,realtime=false";
+        args = new String[]{"main-class:org.auc.gps.speed.SpeedProfileBatchConcurrentReader", "parameter:" + config};
         jobStart(args);
         long duration = System.currentTimeMillis() - t1;
-        Logger.info(TAG, "Time to run job: " + duration + " (ms), job details: " + CommonUtils.toJson(args));
+        Logger.info(TAG, "Time to run job: " + duration + " (ms), job details: " + EUtils.toJson(args));
     }
 
     public static void jobStart(String[] args) {
         try {
             String clazzPath = null;
-            TaskConfig jobConfig = null;
-            for (int i = 0; i < args.length; i += 2) {
-                if ("main-class".equalsIgnoreCase(args[i])) {
-                    clazzPath = args[i + 1];
-                    System.out.println("class path: " + clazzPath);
-                } else if ("config".equalsIgnoreCase(args[i])) {
-                    jobConfig = CommonUtils.fromJson(args[i + 1], TaskConfig.class);
-                    TaskConfig.initialize(jobConfig);
-                    System.out.println(CommonUtils.toJson(TaskConfig.TASK));
+            String parameter = null;
+            for (int i = 0; i < args.length; i++) {
+                if (args[i].contains("main-class")) {
+                    clazzPath = args[i].split(COLON)[1];
+                } else {
+                    parameter = args[i].split(COLON)[1];
+                    System.out.println(parameter);
+                    JobConfig.initialize(parameter);
                 }
             }
+            System.out.println(clazzPath);
+            System.out.println(EUtils.toJson(JobConfig.TASK));
             // start job
             Class jobClazz = Class.forName(clazzPath);
             System.out.println("Class details: " + jobClazz.toString());

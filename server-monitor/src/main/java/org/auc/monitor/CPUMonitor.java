@@ -7,7 +7,7 @@ package org.auc.monitor;
 
 import java.util.TimerTask;
 import org.auc.core.utils.BashExecutor;
-import org.auc.core.utils.CommonUtils;
+import org.auc.core.utils.EUtils;
 import org.auc.monitor.bash.CpuBash;
 import org.auc.monitor.dao.CPUInfo;
 
@@ -37,7 +37,7 @@ public class CPUMonitor extends TimerTask {
     @Override
     public void run() {
         CPUInfo cpuUsage = getCpuUsage();
-        System.out.println(CommonUtils.toJson(cpuUsage));
+        System.out.println(EUtils.toJson(cpuUsage));
     }
 
 }

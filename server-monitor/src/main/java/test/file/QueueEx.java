@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import org.auc.core.utils.CommonUtils;
+import org.auc.core.utils.EUtils;
 
 /**
  *
@@ -30,8 +30,8 @@ public class QueueEx {
         for (Object theFruit : myList) {
             System.out.println(myQueue.poll());
         }
-        System.out.println(CommonUtils.toJson(myQueue));
-        System.out.println("List: " + CommonUtils.toJson(myList));
+        System.out.println(EUtils.toJson(myQueue));
+        System.out.println("List: " + EUtils.toJson(myList));
     }
 
 }

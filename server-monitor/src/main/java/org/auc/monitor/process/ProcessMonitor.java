@@ -7,7 +7,7 @@ package org.auc.monitor.process;
 
 import org.auc.core.file.utils.Logger;
 import org.auc.core.utils.BashExecutor;
-import org.auc.core.utils.CommonUtils;
+import org.auc.core.utils.EUtils;
 import org.auc.monitor.dao.ProcessInfo;
 
 /**
@@ -26,7 +26,7 @@ public class ProcessMonitor {
                 try {
                     String[] info = this.resultSet.toString().split(TAB_DELIMITER, -1);
                     ProcessInfo process = new ProcessInfo(Double.parseDouble(info[0].trim()), Double.parseDouble(info[1].trim()), info[2].trim(), info[3].trim());
-                    System.out.println(CommonUtils.toJson(process));
+                    System.out.println(EUtils.toJson(process));
                 } catch (Exception ex) {
                     Logger.error(TAG, ex);
                 }

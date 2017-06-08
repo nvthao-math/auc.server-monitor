@@ -31,8 +31,8 @@ public class SpeedProfileBatchConcurrentReader extends Executor {
             //
             Calendar fromDate = Calendar.getInstance();
             Calendar endDate = Calendar.getInstance();
-            fromDate.setTime(TimeUtils.toTime(TaskConfig.fromTime()));
-            endDate.setTime(TimeUtils.toTime(TaskConfig.endTime()));
+            fromDate.setTime(TimeUtils.toTime(JobConfig.fromTime()));
+            endDate.setTime(TimeUtils.toTime(JobConfig.endTime()));
             String time = null;
             while (!fromDate.after(endDate)) {
                 time = TimeUtils.toString(fromDate.getTime(), TimeUtils.yyyy_MM_dd_HH);

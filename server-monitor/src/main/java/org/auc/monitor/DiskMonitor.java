@@ -7,7 +7,7 @@ package org.auc.monitor;
 
 import java.util.TimerTask;
 import org.auc.core.utils.BashExecutor;
-import org.auc.core.utils.CommonUtils;
+import org.auc.core.utils.EUtils;
 import org.auc.monitor.bash.DiskBash;
 import org.auc.monitor.dao.DiskInfo;
 
@@ -35,7 +35,7 @@ public class DiskMonitor extends TimerTask {
     @Override
     public void run() {
         DiskInfo info = getInfo();
-        System.out.println(CommonUtils.toJson(info));
+        System.out.println(EUtils.toJson(info));
     }
 
 }

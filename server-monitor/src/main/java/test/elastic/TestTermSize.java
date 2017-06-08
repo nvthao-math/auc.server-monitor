@@ -12,7 +12,7 @@ import java.util.Map;
 import org.auc.core.data.structure.ConcurrentSet;
 import org.auc.core.file.utils.Logger;
 import org.auc.core.file.utils.WriterExecutor;
-import org.auc.core.utils.CommonUtils;
+import org.auc.core.utils.EUtils;
 import org.auc.gps.storage.elastic.action.ESClientPool;
 import org.auc.gps.storage.elastic.model.Attributes;
 import org.auc.gps.storage.elastic.model.Field;
@@ -76,7 +76,7 @@ public class TestTermSize {
                 INDICES.add(index);
             }
             for (TermsTest model : models) {
-                bulkRequest.add(client.prepareIndex(index, "?\\D7lLucene46FieldInfos\\00\\00\\00").setSource(CommonUtils.toJson(model)));
+                bulkRequest.add(client.prepareIndex(index, "?\\D7lLucene46FieldInfos\\00\\00\\00").setSource(EUtils.toJson(model)));
                 count++;
                 if (count % 10000 == 0 || count == models.size()) {
                     bulkRequest.setRefresh(true);
@@ -156,7 +156,7 @@ public class TestTermSize {
         } catch (Exception ex) {
             Logger.error(TAG, ex);
         }
-        return CommonUtils.toJson(result);
+        return EUtils.toJson(result);
     }
 
 }

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import org.auc.core.utils.CommonUtils;
+import org.auc.core.utils.EUtils;
 import org.auc.monitor.dao.ProcessDao;
 
 /**
@@ -26,7 +26,7 @@ public class MeasureTimeExecution {
         List<ProcessDao> runningPool = getPoolRunning();
         Long timeConsuming = 0l;
         while (!queue.isEmpty()) {
-            System.out.println(CommonUtils.toJson(runningPool));
+            System.out.println(EUtils.toJson(runningPool));
             List<ProcessDao> successProcess = getSuccess(runningPool, timeConsuming);
             timeConsuming += successProcess.get(0).getMeanTime();
             processTranfer(queue, runningPool);

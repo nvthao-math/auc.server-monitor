@@ -8,7 +8,7 @@ package org.auc.gps.storage.elastic.action;
 import java.util.HashMap;
 import java.util.Map;
 import org.auc.core.file.utils.Logger;
-import org.auc.core.utils.CommonUtils;
+import org.auc.core.utils.EUtils;
 import org.auc.gps.storage.elastic.model.Attributes;
 import org.auc.gps.storage.elastic.model.Field;
 import org.auc.gps.storage.elastic.model.Index;
@@ -46,7 +46,7 @@ public class ESMapping {
         } catch (Exception ex) {
             Logger.error(TAG, ex);
         }
-        return CommonUtils.toJson(result);
+        return EUtils.toJson(result);
     }
 
     public static void main(String[] args) {

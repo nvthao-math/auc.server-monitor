@@ -9,7 +9,7 @@ import java.util.TimerTask;
 import org.auc.monitor.bash.MemBash;
 import org.auc.monitor.dao.RamInfo;
 import org.auc.core.utils.BashExecutor;
-import org.auc.core.utils.CommonUtils;
+import org.auc.core.utils.EUtils;
 import org.auc.core.file.utils.Logger;
 
 /**
@@ -96,7 +96,7 @@ public class RamMonitor extends TimerTask {
     @Override
     public void run() {
         RamInfo ramInfo = getMemInfo();
-        System.out.println(CommonUtils.toJson(ramInfo));
+        System.out.println(EUtils.toJson(ramInfo));
     }
 
 }

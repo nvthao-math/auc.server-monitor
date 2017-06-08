@@ -8,7 +8,7 @@ package test.elastic;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import org.auc.core.utils.CommonUtils;
+import org.auc.core.utils.EUtils;
 import org.auc.core.utils.TimeUtils;
 import org.auc.gps.storage.elastic.action.ESMapping;
 import org.elasticsearch.action.admin.indices.create.CreateIndexResponse;

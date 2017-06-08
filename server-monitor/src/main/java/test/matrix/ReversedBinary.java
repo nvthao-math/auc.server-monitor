@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import org.auc.core.matrix.Matrix;
-import org.auc.core.utils.CommonUtils;
+import org.auc.core.utils.EUtils;
 
 /**
  *
@@ -37,7 +37,7 @@ public class ReversedBinary {
         List<String> list = Arrays.asList(network, isp, location);
         //
         List<List<String>> result = Matrix.featuresMask(list, TAB_DELIMITER);
-        System.out.println(CommonUtils.toJson(result));
+        System.out.println(EUtils.toJson(result));
     }
 
 }

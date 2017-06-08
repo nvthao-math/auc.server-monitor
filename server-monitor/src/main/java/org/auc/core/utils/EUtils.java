@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import org.auc.core.file.utils.Logger;
 import test.file.Staff;
 
@@ -21,12 +22,14 @@ import test.file.Staff;
  *
  * @author thaonguyen
  */
-public class CommonUtils {
+public class EUtils {
 
-    public static final String TAG = CommonUtils.class.getSimpleName();
+    public static final String TAG = EUtils.class.getSimpleName();
     public static Gson GSON = new Gson();
     public static Type TYPE_STRING_STRING = new TypeToken<Map<String, String>>() {
     }.getType();
+    public static final String COMMA = ",";
+    public static final String UNDER_SCORE = "_";
 
     public static Gson getGson() {
         return GSON;
@@ -36,7 +39,20 @@ public class CommonUtils {
         return GSON.toJson(obj);
     }
 
+    public static <T1, T2> Map<T1, T2> string2Map(String input, String delimeter, Class<T1> keyClass, Class<T2> valueClass) {
+        Map<T1, T2> result = new HashMap<>();
+        String[] parts = input.split(delimeter);
+        for (String val : parts) {
+            String[] fields = val.split("=");
+            result.put(keyClass.cast(fields[0]), valueClass.cast(fields[1]));
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
+        String input = "jobName=read-speed-profiles,fromTime=2017-03-23-00,endTime=2017-03-23-23,synchTo=elastic_csv_parquet,realtime=false";
+        Map<String, String> map = string2Map(input, ",", String.class, String.class);
+        System.out.println(map);
 
 //        System.out.println("=====================");
 //        String staffJson = "[{\"name\":\"mkyong\"}, {\"name\":\"laplap\"}]";

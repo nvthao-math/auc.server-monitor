@@ -16,7 +16,7 @@ import java.util.Set;
 import org.auc.core.file.utils.FileInfo;
 import org.auc.core.file.utils.Logger;
 import org.auc.core.file.utils.ReaderExecutor;
-import org.auc.core.utils.CommonUtils;
+import org.auc.core.utils.EUtils;
 import org.auc.core.utils.NetWorkUtils;
 import org.auc.core.utils.TimeUtils;
 import org.auc.data.generate.adlogs.dao.Click;
@@ -110,7 +110,7 @@ public class ClickGenerate {
 // campaignId
                 record.setCampaignId(getCampaignId());
                 System.out.println("Time: " + time);
-                System.out.println(CommonUtils.toJson(record));
+                System.out.println(EUtils.toJson(record));
                 // increase time
                 fromDate.add(Calendar.SECOND, 1);
                 count++;
@@ -284,7 +284,7 @@ public class ClickGenerate {
 //                        click.setGender(Integer.parseInt(valArr[32]));
 //                        click.setProduct(Long.parseLong(valArr[33]));
                         //
-                        System.out.println(CommonUtils.toJson(click));
+                        System.out.println(EUtils.toJson(click));
                         //
                         StringBuilder device = new StringBuilder();
 //                        if ("Other".equals(click.getDevModel())) {
@@ -311,22 +311,22 @@ public class ClickGenerate {
         }
         System.out.println("Number of file: " + count);
         System.out.println("============ URL ===============");
-        System.out.println(CommonUtils.toJson(URL));
+        System.out.println(EUtils.toJson(URL));
         FileInfo.toStorage(URL, URL_PATH, true);
         System.out.println("============ IP ===============");
-        System.out.println(CommonUtils.toJson(IP));
+        System.out.println(EUtils.toJson(IP));
         FileInfo.toStorage(IP, IP_PATH, true);
         System.out.println("============ DEVICE ===============");
-        System.out.println(CommonUtils.toJson(DEVICE));
+        System.out.println(EUtils.toJson(DEVICE));
         FileInfo.toStorage(DEVICE, DEVICE_PATH, true);
         System.out.println("============ USER_ID ===============");
-        System.out.println(CommonUtils.toJson(USER_ID));
+        System.out.println(EUtils.toJson(USER_ID));
         FileInfo.toStorage(USER_ID, USER_ID_PATH, true);
         System.out.println("============ ZONE_ID ===============");
-        System.out.println(CommonUtils.toJson(ZONE_ID));
+        System.out.println(EUtils.toJson(ZONE_ID));
         FileInfo.toStorage(ZONE_ID, ZONE_ID_PATH, true);
         System.out.println("============ CREATIVE_ID ===============");
-        System.out.println(CommonUtils.toJson(CREATIVE_ID));
+        System.out.println(EUtils.toJson(CREATIVE_ID));
         FileInfo.toStorage(CREATIVE_ID, CREATIVE_ID_PATH, true);
     }
 

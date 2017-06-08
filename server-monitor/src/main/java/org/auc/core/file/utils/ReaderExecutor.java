@@ -21,7 +21,7 @@ import org.auc.core.model.FileMonitorModel;
 import org.auc.core.model.ReaderInfo;
 import org.auc.core.model.ReaderOffsetModel;
 import org.auc.core.redis.utils.RedisExecutor;
-import org.auc.core.utils.CommonUtils;
+import org.auc.core.utils.EUtils;
 
 /**
  *
@@ -91,7 +91,7 @@ public class ReaderExecutor {
                 if (fileModel == null || fileModel.isEmpty()) {
                     return model;
                 }
-                model = CommonUtils.mapToInstance(fileModel, FileMonitorModel.class);
+                model = EUtils.mapToInstance(fileModel, FileMonitorModel.class);
                 return model;
             }
         }).run();
@@ -121,7 +121,7 @@ public class ReaderExecutor {
                         (new RedisExecutor<Boolean>(RedisConfigs.INFO) {
                             @Override
                             public Boolean builds() {
-                                Map<String, String> mapPersit = CommonUtils.instanceToMap(model);
+                                Map<String, String> mapPersit = EUtils.instanceToMap(model);
                                 System.out.println(mapPersit);
                                 jedis.hmset(fileName, mapPersit);
                                 jedis.expire(fileName, 40000);
@@ -146,7 +146,7 @@ public class ReaderExecutor {
             (new RedisExecutor<Boolean>(RedisConfigs.INFO) {
                 @Override
                 public Boolean builds() {
-                    Map<String, String> mapPersit = CommonUtils.instanceToMap(model);
+                    Map<String, String> mapPersit = EUtils.instanceToMap(model);
                     jedis.hmset(fileName, mapPersit);
                     return true;
                 }
