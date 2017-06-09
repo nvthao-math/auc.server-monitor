@@ -8,6 +8,7 @@ package org.auc.gps.speed;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import org.auc.core.file.utils.Logger;
 import org.auc.core.utils.EUtils;
 
 /**
@@ -15,7 +16,7 @@ import org.auc.core.utils.EUtils;
  * @author thaonv
  */
 public class JobConfig {
-
+    
     public static JobConfig TASK;
     private String jobName;
     private String fromTime;
@@ -27,13 +28,14 @@ public class JobConfig {
     public JobConfig() {
         super();
     }
-
+    
     public static void initialize(String parameter) {
         TASK = new JobConfig();
         Map<String, String> map = EUtils.string2Map(parameter, EUtils.COMMA, String.class, String.class);
         for (String key : map.keySet()) {
             if ("jobName".equals(key)) {
                 TASK.setJobName(map.get(key));
+                Logger.setPrefix(map.get(key));
             } else if ("fromTime".equals(key)) {
                 TASK.setFromTime(map.get(key));
             } else if ("endTime".equals(key)) {
@@ -46,25 +48,25 @@ public class JobConfig {
                 // ignore
             }
         }
-
+        
     }
-
+    
     public static String jobName() {
         return TASK.getJobName();
     }
-
+    
     public static String fromTime() {
         return TASK.getFromTime();
     }
-
+    
     public static String endTime() {
         return TASK.getEndTime();
     }
-
+    
     public static List<String> synchTo() {
         return TASK.getSynchTo();
     }
-
+    
     public static boolean realtime() {
         return TASK.isRealtime();
     }
@@ -138,5 +140,5 @@ public class JobConfig {
     public void setRealtime(boolean realtime) {
         this.realtime = realtime;
     }
-
+    
 }

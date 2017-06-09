@@ -17,12 +17,11 @@ import org.auc.gps.speed.JobConfig;
 public class JobExecutor {
 
     private static final String TAG = JobExecutor.class.getSimpleName();
-    private static final String COLON = ":";
 
     public static void main(String[] args) {
         long t1 = System.currentTimeMillis();
         String config = "jobName=read-speed-profiles,fromTime=2017-03-23-00,endTime=2017-03-23-23,synchTo=elastic_csv_parquet,realtime=false";
-        args = new String[]{"main-class:org.auc.gps.speed.SpeedProfileBatchConcurrentReader", "parameter:" + config};
+        args = new String[]{"main-class:org.auc.gps.speed.SpeedProfileBatchReader", "parameter:" + config};
         jobStart(args);
         long duration = System.currentTimeMillis() - t1;
         Logger.info(TAG, "Time to run job: " + duration + " (ms), job details: " + EUtils.toJson(args));
@@ -34,9 +33,9 @@ public class JobExecutor {
             String parameter = null;
             for (int i = 0; i < args.length; i++) {
                 if (args[i].contains("main-class")) {
-                    clazzPath = args[i].split(COLON)[1];
+                    clazzPath = args[i].split(EUtils.COLON)[1];
                 } else {
-                    parameter = args[i].split(COLON)[1];
+                    parameter = args[i].split(EUtils.COLON)[1];
                     System.out.println(parameter);
                     JobConfig.initialize(parameter);
                 }

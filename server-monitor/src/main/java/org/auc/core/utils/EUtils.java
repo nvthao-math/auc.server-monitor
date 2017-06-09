@@ -8,15 +8,10 @@ package org.auc.core.utils;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 import org.auc.core.file.utils.Logger;
-import test.file.Staff;
 
 /**
  *
@@ -30,6 +25,8 @@ public class EUtils {
     }.getType();
     public static final String COMMA = ",";
     public static final String UNDER_SCORE = "_";
+    public static final String HYPHEN = "-";
+    public static final String COLON = ":";
 
     public static Gson getGson() {
         return GSON;
