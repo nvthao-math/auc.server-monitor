@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.auc.monitor.bash;
+package org.auc.monitor.server.dao;
 
 /**
  *
- * @author thaonv
+ * @author thaonguyen
  */
-public class DiskBash {
-
-    public static final String COMMAND = "df -h --total | tail -1 | awk '{print $5}'";
-
+public class NetworkInfo {
+    
 }

@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.auc.monitor;
+package org.auc.monitor.server;
 
 import org.auc.core.utils.BashExecutor;
 import org.auc.core.utils.EUtils;
-import org.auc.monitor.bash.NetBash;
-import org.auc.monitor.dao.NetInfo;
+import org.auc.monitor.server.bash.NetBash;
+import org.auc.monitor.server.dao.NetInfo;
 
 /**
  *

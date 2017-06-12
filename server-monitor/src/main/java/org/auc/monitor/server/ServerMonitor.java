@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.auc.monitor;
+package org.auc.monitor.server;
 
 import java.util.Date;
 import org.auc.core.file.utils.Logger;
 import org.auc.core.file.utils.WriterExecutor;
 import org.auc.core.utils.TimeUtils;
 import org.auc.gps.job.Executor;
-import org.auc.monitor.dao.CPUInfo;
-import org.auc.monitor.dao.DiskInfo;
-import org.auc.monitor.dao.RamInfo;
-import org.auc.monitor.dao.TaskInfo;
+import org.auc.monitor.server.dao.CPUInfo;
+import org.auc.monitor.server.dao.DiskInfo;
+import org.auc.monitor.server.dao.RamInfo;
+import org.auc.monitor.server.dao.TaskInfo;
 
 /**
  *
