@@ -7,7 +7,7 @@ package test;
 
 import java.util.Set;
 import org.auc.core.redis.utils.RedisExecutor;
-import org.auc.monitor.cluster.configs.RedisConfigs;
+import org.auc.monitor.server.cluster.configs.RedisConfigs;
 
 /**
  *

@@ -9,7 +9,7 @@ import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.auc.core.file.utils.Logger;
-import org.auc.monitor.cluster.configs.ConfigInfo;
+import org.auc.monitor.server.cluster.configs.ConfigInfo;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;

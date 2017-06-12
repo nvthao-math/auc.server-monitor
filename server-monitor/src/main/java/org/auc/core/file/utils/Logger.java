@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Date;
 import org.auc.core.utils.EUtils;
-import org.auc.monitor.cluster.configs.ClusterConfigs;
+import org.auc.monitor.server.cluster.configs.ClusterConfigs;
 import org.auc.core.utils.ShutdownHook;
 import org.auc.core.utils.TimeUtils;
 

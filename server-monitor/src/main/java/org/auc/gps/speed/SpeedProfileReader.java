@@ -19,7 +19,7 @@ import org.auc.core.utils.NumberUtils;
 import org.auc.gps.speed.model.SpeedSchema;
 import org.auc.gps.storage.elastic.action.IndexingService;
 import org.auc.gps.storage.redis.KeyManagement;
-import org.auc.monitor.cluster.configs.RedisConfigs;
+import org.auc.monitor.server.cluster.configs.RedisConfigs;
 
 /**
  *

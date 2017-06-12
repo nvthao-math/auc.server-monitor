@@ -6,9 +6,9 @@
 package test;
 
 import org.auc.core.utils.BashExecutor;
-import org.auc.monitor.CPUMonitor;
-import org.auc.monitor.bash.CpuBash;
-import org.auc.monitor.dao.CPUInfo;
+import org.auc.monitor.server.CPUMonitor;
+import org.auc.monitor.server.bash.CpuBash;
+import org.auc.monitor.server.dao.CPUInfo;
 
 /**
  *

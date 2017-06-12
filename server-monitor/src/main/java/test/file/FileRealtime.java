@@ -8,7 +8,7 @@ package test.file;
 import com.google.gson.Gson;
 import java.io.File;
 import java.util.List;
-import org.auc.monitor.cluster.configs.RedisConfigs;
+import org.auc.monitor.server.cluster.configs.RedisConfigs;
 import org.auc.core.model.ReaderInfo;
 import org.auc.core.file.utils.Logger;
 import org.auc.core.file.utils.ReaderExecutor;

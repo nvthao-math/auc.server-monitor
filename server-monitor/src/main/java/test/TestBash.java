@@ -9,7 +9,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Map;
-import org.auc.monitor.bash.MemBash;
+import org.auc.monitor.server.bash.MemBash;
 import org.auc.core.file.utils.Logger;
 
 /**

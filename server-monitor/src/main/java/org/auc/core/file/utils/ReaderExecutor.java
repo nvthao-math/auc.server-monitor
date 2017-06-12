@@ -15,7 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
-import org.auc.monitor.cluster.configs.RedisConfigs;
+import org.auc.monitor.server.cluster.configs.RedisConfigs;
 import org.auc.core.hardware.utils.HardWareMonitor;
 import org.auc.core.model.FileMonitorModel;
 import org.auc.core.model.ReaderInfo;

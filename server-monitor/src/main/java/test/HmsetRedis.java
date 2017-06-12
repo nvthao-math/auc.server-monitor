@@ -7,7 +7,7 @@ package test;
 
 import java.util.HashMap;
 import java.util.Map;
-import org.auc.monitor.cluster.configs.RedisConfigs;
+import org.auc.monitor.server.cluster.configs.RedisConfigs;
 import org.auc.core.redis.utils.RedisExecutor;
 
 /**
