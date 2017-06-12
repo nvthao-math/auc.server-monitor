@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 import org.auc.core.utils.EUtils;
-import org.auc.monitor.dao.ProcessDao;
+import org.auc.monitor.server.dao.ProcessDao;
 
 /**
  *

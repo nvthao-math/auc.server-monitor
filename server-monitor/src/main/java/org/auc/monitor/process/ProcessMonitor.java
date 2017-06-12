@@ -8,7 +8,7 @@ package org.auc.monitor.process;
 import org.auc.core.file.utils.Logger;
 import org.auc.core.utils.BashExecutor;
 import org.auc.core.utils.EUtils;
-import org.auc.monitor.dao.ProcessInfo;
+import org.auc.monitor.server.dao.ProcessInfo;
 
 /**
  *

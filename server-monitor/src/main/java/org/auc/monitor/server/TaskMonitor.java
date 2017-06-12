@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.auc.monitor;
+package org.auc.monitor.server;
 
 import java.util.TimerTask;
-import org.auc.monitor.bash.TaskBash;
-import org.auc.monitor.dao.TaskInfo;
+import org.auc.monitor.server.bash.TaskBash;
+import org.auc.monitor.server.dao.TaskInfo;
 import org.auc.core.utils.BashExecutor;
 import org.auc.core.utils.EUtils;
 import org.auc.core.file.utils.Logger;
