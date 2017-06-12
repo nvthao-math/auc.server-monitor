@@ -5,7 +5,11 @@
  */
 package org.auc.data.generate.adlogs;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -16,6 +20,7 @@ import java.util.Set;
 import org.auc.core.file.utils.FileInfo;
 import org.auc.core.file.utils.Logger;
 import org.auc.core.file.utils.ReaderExecutor;
+import org.auc.core.file.utils.WriterExecutor;
 import org.auc.core.utils.EUtils;
 import org.auc.core.utils.NetWorkUtils;
 import org.auc.core.utils.TimeUtils;
@@ -28,7 +33,7 @@ import org.auc.data.generate.adlogs.dao.Click;
 public class ClickGenerate {
 
     private static final String TAG = ClickGenerate.class.getSimpleName();
-    private static String CLICK_PATH = "/home/cpu10869-local/workspace/data/Ad-logs/click/day=2017-02-21/hour=08";
+    private static String CLICK_PATH = "/home/bigdata/workspace/data/ads/click/gdata";
     private static Set<String> URL = new HashSet<>();
     private static final String URL_PATH = "data/adlogs/info/click/url.txt";
     private static Set<String> IP = new HashSet<>();
@@ -53,14 +58,102 @@ public class ClickGenerate {
     private static final String PRODUCT_PATH = "data/adlogs/info/click/product.txt";
     private static final List<String> GENDER = Arrays.asList(new String[]{"male", "female", "undefined"});
     private static final Random RND = new Random();
+    private static final String FILE_GEN = "/home/bigdata/workspace/data/ads/click/click-2017-06-10";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         String fromTime = "2017-04-02-00";
         String endTime = "2017-04-02-01";
-        generate(fromTime, endTime);
-//        for (int i = 0; i < 10; i++) {
-//            System.out.println(RND.nextInt(10));
-//        }
+        //
+        Calendar fromDate = Calendar.getInstance();
+        fromDate.setTime(TimeUtils.toTime(fromTime));
+        BufferedReader br = null;
+        FileReader fr = null;
+        File clickFolder = new File(CLICK_PATH);
+        for (final File fileEntry : clickFolder.listFiles()) {
+            String fileName = fileEntry.getAbsolutePath();
+            try {
+                fr = new FileReader(fileName);
+                br = new BufferedReader(fr);
+                String line;
+                while ((line = br.readLine()) != null) {
+//                    System.out.println(line);
+                    String[] parts = line.split("\t");
+                    String time = TimeUtils.toString(fromDate.getTime(), TimeUtils.yyyy_MM_dd_HHmmss);
+                    String userId = parts[5];
+                    String url = parts[6];
+                    String timeSpan = parts[21];
+                    String isView = (parts[22].equals("1")) ? "true" : "false";
+                    String os = parts[24];
+                    String browser = parts[25];
+                    String devType = parts[27];
+                    String devModel = parts[28];
+                    String ip = parts[29];
+                    String country = "vn";
+                    String gender = null;
+                    if ("1".equals(parts[32])) {
+                        gender = "male";
+                    } else if ("2".equals(parts[32])) {
+                        gender = "female";
+                    } else {
+                        gender = "undefined";
+                    }
+                    String product = getProduct();
+                    int age = RND.nextInt(56);
+                    String rData = new StringBuilder()
+                            .append(time)
+                            .append("\t")
+                            .append(userId)
+                            .append("\t")
+                            .append(timeSpan)
+                            .append("\t")
+                            .append(isView)
+                            .append("\t")
+                            .append(url)
+                            .append("\t")
+                            .append(os)
+                            .append("\t")
+                            .append(browser)
+                            .append("\t")
+                            .append(devType)
+                            .append("\t")
+                            .append(devModel)
+                            .append("\t")
+                            .append(ip)
+                            .append("\t")
+                            .append(country)
+                            .append("\t")
+                            .append(gender)
+                            .append("\t")
+                            .append(product)
+                            .append("\t")
+                            .append(age)
+                            .toString();
+                    (new WriterExecutor(FILE_GEN, true) {
+                        @Override
+                        public void builds() throws Exception {
+                            this.bufferedWriter.write(rData);
+                            this.bufferedWriter.write("\n");
+                        }
+                    }).run();
+                    // increase time
+                    fromDate.add(Calendar.SECOND, 4);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    if (br != null) {
+                        br.close();
+                    }
+                    if (fr != null) {
+                        fr.close();
+                    }
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+
     }
 
     public static void generate(String fromTime, String endTime) {
