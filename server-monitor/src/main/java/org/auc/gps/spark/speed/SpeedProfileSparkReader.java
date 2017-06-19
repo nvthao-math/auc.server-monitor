@@ -12,6 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.apache.spark.api.java.JavaRDD;
 import org.auc.core.file.utils.Logger;
+import org.auc.core.utils.EUtils;
 import org.auc.core.utils.NumberUtils;
 import org.auc.gps.config.LogConfig;
 import org.auc.gps.speed.model.SpeedModel;
@@ -57,22 +58,22 @@ public class SpeedProfileSparkReader extends SparkClient {
     public static SpeedModel parseLog(String record) {
         SpeedModel model = new SpeedModel();
         try {
-            String[] parts = record.split(",");
-            double speed = Double.parseDouble(parts[SpeedSchema.SPEED]);
-            model.setId(parts[SpeedSchema.ID]);
-            model.setArcId(parts[SpeedSchema.ARC_ID]);
-            model.setSubClass(parts[SpeedSchema.SUB_CLASS]);
-            model.setLength(parts[SpeedSchema.LENGTH]);
-            model.setSpeedMax(parts[SpeedSchema.SPEED_MAX]);
+            String[] fields = record.split(EUtils.COMMA);
+            double speed = Double.parseDouble(fields[SpeedSchema.SPEED]);
+            model.setId(fields[SpeedSchema.USER_ID]);
+            model.setArcId(fields[SpeedSchema.ARC_ID]);
+            model.setSubClass(fields[SpeedSchema.SUB_CLASS]);
+            model.setLength(fields[SpeedSchema.LENGTH]);
+            model.setSpeedMax(fields[SpeedSchema.SPEED_MAX]);
             model.setSpeed(speed);
-            String time = new StringBuilder().append(parts[SpeedSchema.YEAR]).append("-")
-                    .append(NumberUtils.leadingZeroFill(Integer.parseInt(parts[SpeedSchema.MONTH]), 2)).append("-")
-                    .append(NumberUtils.leadingZeroFill(Integer.parseInt(parts[SpeedSchema.DAY]), 2)).append("-")
-                    .append(NumberUtils.leadingZeroFill(Integer.parseInt(parts[SpeedSchema.HOUR]), 2))
+            String time = new StringBuilder().append(fields[SpeedSchema.YEAR]).append("-")
+                    .append(NumberUtils.leadingZeroFill(Integer.parseInt(fields[SpeedSchema.MONTH]), 2)).append("-")
+                    .append(NumberUtils.leadingZeroFill(Integer.parseInt(fields[SpeedSchema.DAY]), 2)).append("-")
+                    .append(NumberUtils.leadingZeroFill(Integer.parseInt(fields[SpeedSchema.HOUR]), 2))
                     .toString();
             model.setTime(time);
-            model.setDayOfWeek(parts[SpeedSchema.DAY_OF_WEEK]);
-            model.setDayNameOfWeek(parts[SpeedSchema.DAY_NAME_OF_WEEK]);
+            model.setDayOfWeek(fields[SpeedSchema.DAY_OF_WEEK]);
+            model.setDayNameOfWeek(fields[SpeedSchema.DAY_NAME_OF_WEEK]);
         } catch (Exception ex) {
             Logger.error(TAG, ex);
         }

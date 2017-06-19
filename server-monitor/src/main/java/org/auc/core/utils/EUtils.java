@@ -27,6 +27,10 @@ public class EUtils {
     public static final String UNDER_SCORE = "_";
     public static final String HYPHEN = "-";
     public static final String COLON = ":";
+    public static final String TAB_DELIMITER = "\t";
+    public static final String FIELD_DELIMITER = ",";
+    public static final String HYPHEN_DELIMITER = "-";
+    public static final String NEW_LINE = "\n";
 
     public static Gson getGson() {
         return GSON;

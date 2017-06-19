@@ -15,11 +15,6 @@ import org.apache.spark.sql.SQLContext;
  */
 public class SparkClient {
 
-    public static final String TAB_DELIMITER = "\t";
-    public static final String FIELD_DELIMITER = ",";
-    public static final String HYPHEN_DELIMITER = "-";
-    public static final String UNDER_SCORE = "_";
-    public static final String NEW_LINE = "\n";
     private static final String MASTER = "local[*]";
     private static final String APP_NAME = "spark-default-app";
     private static SparkConf sConf;

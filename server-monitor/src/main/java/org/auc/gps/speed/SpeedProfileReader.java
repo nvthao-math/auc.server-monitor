@@ -61,7 +61,7 @@ public class SpeedProfileReader {
                 double speed = Double.parseDouble(parts[SpeedSchema.SPEED]);
 //                if (speed > 0) {
                 SpeedModel model = new SpeedModel();
-                model.setId(parts[SpeedSchema.ID]);
+                model.setId(parts[SpeedSchema.USER_ID]);
                 model.setArcId(parts[SpeedSchema.ARC_ID]);
                 model.setSubClass(parts[SpeedSchema.SUB_CLASS]);
                 model.setLength(parts[SpeedSchema.LENGTH]);

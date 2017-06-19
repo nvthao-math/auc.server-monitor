@@ -66,7 +66,7 @@ public class TestWithSpark {
         try {
             String[] parts = record.split(",");
             double speed = Double.parseDouble(parts[SpeedSchema.SPEED]);
-            model.setId(parts[SpeedSchema.ID]);
+            model.setId(parts[SpeedSchema.USER_ID]);
             model.setArcId(parts[SpeedSchema.ARC_ID]);
             model.setSubClass(parts[SpeedSchema.SUB_CLASS]);
             model.setLength(parts[SpeedSchema.LENGTH]);

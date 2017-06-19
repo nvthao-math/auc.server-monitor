@@ -12,7 +12,7 @@ package org.auc.gps.speed.model;
 public class SpeedSchema {
 
     // ID,Arc_id,SubClass,Length,Speed_Max,Speed,Year,Month,Day,Hour,DayOfWeek,DayNameOfWeek
-    public static final int ID = 0;
+    public static final int USER_ID = 0;
     public static final int ARC_ID = 1;
     public static final int SUB_CLASS = 2;
     public static final int LENGTH = 3;
@@ -25,5 +25,10 @@ public class SpeedSchema {
     public static final int DAY_OF_WEEK = 10;
     public static final int DAY_NAME_OF_WEEK = 11;
     public static final int BATCH = 60000;
+    //  production configuration
+    public static final int SPEED_LOWER = 1;
+    public static final int SPEED_UPPER = 110;
+    public static final int TIME_ACTIVE_LOWER = 07;
+    public static final int TIME_ACTIVE_UPPER = 21;
 
 }
