@@ -18,6 +18,8 @@ import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.cluster.metadata.MetaDataDeleteIndexService.Response;
+import org.elasticsearch.cluster.node.DiscoveryNode;
+import org.elasticsearch.common.collect.ImmutableList;
 import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
@@ -36,40 +38,20 @@ public class TestTransportClient {
                 .put("client.transport.ping_timeout", 10000) // in milli-seconds
                 .build();
         // on startup
-        Client client = new TransportClient(settings)
-                .addTransportAddress(new InetSocketTransportAddress("10.199.220.22", 9300))
-                .addTransportAddress(new InetSocketTransportAddress("10.199.220.22", 9501))
-                .addTransportAddress(new InetSocketTransportAddress("10.199.220.22", 9702));
+        TransportClient client = new TransportClient(settings)
+                .addTransportAddress(new InetSocketTransportAddress("localhost", 9300))
+                .addTransportAddress(new InetSocketTransportAddress("localhost", 9501))
+                .addTransportAddress(new InetSocketTransportAddress("localhost", 9702));
         //
-        String index = "speed_profiles" + TimeUtils.toString(new Date(), TimeUtils.yyyy_MM_dd_HH);
-        createNewIndex(client, index);
-        // index data
-//        Map<String, Object> json = new HashMap<String, Object>();
-//        json.put("user", "kimchy");
-//        json.put("postDate", new Date());
-//        json.put("message", "trying out Elasticsearch");
-//        String data = CommonUtils.toJson(json);
-//        IndexResponse response = client.prepareIndex("twitter", "tweet", "20")
-//                .setSource(data)
-//                .execute()
-//                .actionGet();
-        // on shutdown
+        ImmutableList<DiscoveryNode> nodes = client.connectedNodes();
+        for (DiscoveryNode node : nodes) {
+            System.out.println(node.name());
+            System.out.println(node.getHostName() + ", " + node.getHostAddress());
+            System.out.println(node.masterNode());
+            System.out.println(node.isMasterNode());
+            System.out.println("=================");
+        }
         client.close();
-    }
-
-    public static String createNewIndex(Client client, String index) {
-        Settings settings = ImmutableSettings.settingsBuilder()
-                .put("index.number_of_shards", 10)
-                .put("index.number_of_replicas", 2)
-                .build();
-        // client perform create new index
-        CreateIndexResponse response = client.admin()
-                .indices()
-                .prepareCreate(index)
-                .setSettings(settings)
-                .addMapping("speed_profile", ESMapping.getMappingSpeedProfiles()).get();
-        response.isAcknowledged();
-        return null;
     }
 
 }
