@@ -7,6 +7,7 @@ package org.auc.gps.spark.speed;
 
 import com.spark.config.SparkClient;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -68,14 +69,18 @@ public class SpeedForRoadSegment extends SparkClient {
         try {
             String[] parts = tuple._1().split(EUtils.TAB_DELIMITER);
             String arcId = parts[0];
-            double speedMax = Double.parseDouble(parts[1]);
+            Double speedMax = Double.parseDouble(parts[1]);
             Map<String, Double> speedMap = new HashMap<>();
             Iterator<Tuple2<String, Double>> iterator = tuple._2().iterator();
             while (iterator.hasNext()) {
                 Tuple2<String, Double> val = iterator.next();
                 speedMap.put(val._1(), val._2());
             }
-            
+            //
+            if (speedMax != 0.0) {
+            } else {
+                speedMax = Collections.max(speedMap.values());
+            }
 
         } catch (Exception ex) {
             Logger.error(TAG, ex);
