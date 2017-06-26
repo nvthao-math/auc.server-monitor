@@ -12,9 +12,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.storage.StorageLevel;
 import org.auc.core.file.utils.Logger;
+import org.auc.core.ml.regression.LinearRegression;
 import org.auc.core.utils.EUtils;
 import org.auc.core.utils.NumberUtils;
 import org.auc.gps.config.LogConfig;
@@ -40,61 +42,148 @@ public class SpeedForRoadSegment extends SparkClient {
                 .groupByKey()
                 .flatMapToPair((Tuple2<String, Iterable<Tuple2<Double, Long>>> tuple) -> avgSpeed(tuple))
                 .groupByKey()
-                .filter((Tuple2< String, Iterable<Tuple2<String, Double>>> tuple) -> isSpeedProfile(tuple));
-        speedArcIdRDD.foreach(tuple -> System.out.println(tuple));
+                .filter((Tuple2< String, Iterable<Tuple2<Double, Double>>> tuple) -> isSpeedProfile(tuple));
+//        speedArcIdRDD.foreach(tuple -> System.out.println(tuple));
         // average speed day by day (Mon to Sun)
-        JavaPairRDD speedDayRDD = dataRDD
+        JavaPairRDD<String, Iterable<Tuple2<Double, Double>>> speedDayRDD = dataRDD
                 .flatMapToPair((Tuple2<String, Tuple2<Double, Long>> tuple) -> speedDayParse(tuple))
                 .groupByKey()
                 .flatMapToPair((Tuple2<String, Iterable<Tuple2<Double, Long>>> tuple) -> avgSpeedDay(tuple))
-                .groupByKey();
+                .groupByKey()
+                .filter((Tuple2< String, Iterable<Tuple2<Double, Double>>> tuple) -> isSpeedProfile(tuple))
+                .flatMapToPair((Tuple2<String, Iterable<Tuple2<Double, Double>>> tuple) -> gapsFilling(tuple));
+        speedDayRDD.foreach((Tuple2<String, Iterable<Tuple2<Double, Double>>> tuple) -> {
+            StringBuilder sb = new StringBuilder();
+            sb.append(tuple._1()).append("        ");
+//            System.out.println(tuple._1() + "   ");
+            Iterator<Tuple2<Double, Double>> iterator = tuple._2().iterator();
+            while (iterator.hasNext()) {
+                sb.append(iterator.next()).append(", ");
+//                System.out.print(iterator.next() + ", ");
+            }
+            System.out.println(sb.toString());
+        });
         // average speed by subclass
         JavaPairRDD speedSubClassRDD = dataRDD
                 .flatMapToPair((Tuple2<String, Tuple2<Double, Long>> tuple) -> subClassParse(tuple))
                 .groupByKey()
                 .flatMapToPair((Tuple2<String, Iterable<Tuple2<Double, Long>>> tuple) -> avgSubClass(tuple))
                 .groupByKey()
-                .flatMapToPair((Tuple2<String, Iterable<Tuple2<String, Double>>> tuple) -> gapsFilling(tuple));
+                .flatMapToPair((Tuple2<String, Iterable<Tuple2<Double, Double>>> tuple) -> gapsFilling(tuple));
         //
-
-//        JavaPairRDD speedMaxRDD = dataRDD.flatMapToPair((Tuple2<String, Tuple2<Double, Long>> tuple) -> speedMaxParse(tuple))
-//                .groupByKey();
-//        speedMaxRDD.foreach(tuple -> System.out.println(tuple));
         System.out.println("Time consuming: " + (System.currentTimeMillis() - t1) + " (ms)");
 
     }
 
-    private static List<Tuple2<String, Iterable<Tuple2<String, Double>>>> gapsFilling(Tuple2<String, Iterable<Tuple2<String, Double>>> tuple) {
-        List<Tuple2<String, Iterable<Tuple2<String, Double>>>> result = new ArrayList<>();
+    private static List<Tuple2<String, Iterable<Tuple2<Double, Double>>>> gapsFilling(Tuple2<String, Iterable<Tuple2<Double, Double>>> tuple) {
+        List<Tuple2<String, Iterable<Tuple2<Double, Double>>>> result = new ArrayList<>();
         try {
-            String[] parts = tuple._1().split(EUtils.TAB_DELIMITER);
+            String[] parts = tuple._1().split(EUtils.TAB_DELIMITER, -1);
             String arcId = parts[0];
-            Double speedMax = Double.parseDouble(parts[1]);
-            Map<String, Double> speedMap = new HashMap<>();
-            Iterator<Tuple2<String, Double>> iterator = tuple._2().iterator();
+            Double speedMax = Double.parseDouble(parts[2]);
+            Map<Double, Double> speedMap = new TreeMap<>();
+            Map<Double, Double> subSpeedMap = new TreeMap<>();
+            Iterator<Tuple2<Double, Double>> iterator = tuple._2().iterator();
             while (iterator.hasNext()) {
-                Tuple2<String, Double> val = iterator.next();
-                speedMap.put(val._1(), val._2());
+                Tuple2<Double, Double> val = iterator.next();
+                if (SpeedSchema.SPECIAL_TIME.contains(val._1())) {
+                    speedMap.put(val._1(), val._2());
+                } else {
+                    subSpeedMap.put(val._1(), val._2());
+                }
+            }
+            // set speed max
+            if (speedMax == 0.0) {
+                double spmx = (subSpeedMap.size() > 0) ? Collections.max(subSpeedMap.values()) : SpeedSchema.SPEED_DEFAULT;
+                double spmy = (speedMap.size() > 0) ? Collections.max(speedMap.values()) : SpeedSchema.SPEED_DEFAULT;
+                speedMax = (spmx >= spmy) ? spmx : spmy;
+            }
+            // set speedMax to the special time [0h, 6h] and [22h, 23h]
+            for (double time : SpeedSchema.SPECIAL_TIME) {
+                Double speed = speedMap.get(time);
+                if (speed == null) {
+                    speedMap.put(time, speedMax);
+                }
             }
             //
-            if (speedMax != 0.0) {
-            } else {
-                speedMax = Collections.max(speedMap.values());
-            }
+            if (isInterpolation(subSpeedMap)) {
+                // case 01: cubic spline interpolation || two end points (7h, 21h) have speed data 
+                // code cubic here
 
+            } else if (isRegression(subSpeedMap)) {
+                // case 02: linear regression || partial interval of time continually have speed data
+                LinearRegression liRe = new LinearRegression(subSpeedMap);
+                liRe._init();
+                List<Double> timeMissing = timeMissingSpeed(subSpeedMap);
+                Map<Double, Double> mapPred = (Map<Double, Double>) liRe.predict(timeMissing);
+                speedMap.putAll(subSpeedMap);
+                speedMap.putAll(mapPred);
+            } else {
+                // case 03: combine linear regression and cubic spline interpolation
+
+            }
+            // revert to result format List<Tuple2<String, Iterable<Tuple2<Double, Double>>>>
+            Iterable<Tuple2<Double, Double>> regesIterator = EUtils.asIterable(speedMap);
+            result.add(new Tuple2(tuple._1(), regesIterator));
+        } catch (Exception ex) {
+            System.out.println("TUPLE ====== " + tuple);
+            Logger.error(TAG, ex);
+        }
+        return result;
+    }
+
+    private static List<Double> timeMissingSpeed(Map<Double, Double> mapSpeed) {
+        List<Double> result = new ArrayList<>();
+        for (double i = 7; i < 22; i++) {
+            Double val = mapSpeed.get(i);
+            if (val == null) {
+                result.add(i);
+            }
+        }
+        return result;
+    }
+
+    private static boolean isInterpolation(Map<Double, Double> subSpeedMap) {
+        boolean result = false;
+        Double _07hSpeed = subSpeedMap.get(07d);
+        Double _21hSpeed = subSpeedMap.get(21d);
+        if (_07hSpeed != null && _21hSpeed != null) {
+            result = true;
+        }
+        return result;
+    }
+
+    private static boolean isRegression(Map<Double, Double> subSpeedMap) throws Exception {
+        boolean result = true;
+        try {
+            Double _07hSpeed = subSpeedMap.get(07d);
+            Double _21hSpeed = subSpeedMap.get(21d);
+            if (_07hSpeed == null || _21hSpeed == null) {
+                double beginHour = (double) EUtils.firstKey(subSpeedMap);
+                double lastHour = (double) EUtils.firstKey(subSpeedMap);
+                for (double i = beginHour; i < lastHour; i++) {
+                    Double spx = subSpeedMap.get(i);
+                    Double spy = subSpeedMap.get(i);
+                    if (spy == null || spx == null) {
+                        result = false;
+                    }
+                }
+            } else {
+                result = false;
+            }
         } catch (Exception ex) {
             Logger.error(TAG, ex);
         }
         return result;
     }
 
-    private static boolean isSpeedProfile(Tuple2<String, Iterable<Tuple2<String, Double>>> tuple) {
+    private static boolean isSpeedProfile(Tuple2<String, Iterable<Tuple2<Double, Double>>> tuple) {
         int count = 0;
         try {
-            Iterator<Tuple2<String, Double>> iterator = tuple._2().iterator();
+            Iterator<Tuple2<Double, Double>> iterator = tuple._2().iterator();
             while (iterator.hasNext()) {
-                Tuple2<String, Double> val = iterator.next();
-                int hour = Integer.parseInt(val._1());
+                Tuple2<Double, Double> val = iterator.next();
+                double hour = val._1();
                 if (SpeedSchema.TIME_ACTIVE_LOWER <= hour && hour <= SpeedSchema.TIME_ACTIVE_UPPER) {
                     count++;
                 }
@@ -105,13 +194,13 @@ public class SpeedForRoadSegment extends SparkClient {
         return count > 10;
     }
 
-    private static List<Tuple2<String, Tuple2<String, Double>>> avgSubClass(Tuple2<String, Iterable<Tuple2<Double, Long>>> tuple) {
-        List<Tuple2<String, Tuple2<String, Double>>> result = new ArrayList<>();
+    private static List<Tuple2<String, Tuple2<Double, Double>>> avgSubClass(Tuple2<String, Iterable<Tuple2<Double, Long>>> tuple) {
+        List<Tuple2<String, Tuple2<Double, Double>>> result = new ArrayList<>();
         try {
             String[] parts = tuple._1().split(EUtils.TAB_DELIMITER);
             String subClass = parts[0];
             String dateName = parts[1];
-            String hour = parts[2];
+            Double hour = Double.parseDouble(parts[2]);
             String key = new StringBuilder()
                     .append(subClass)
                     .append(EUtils.TAB_DELIMITER)
@@ -154,13 +243,13 @@ public class SpeedForRoadSegment extends SparkClient {
         return result;
     }
 
-    private static List<Tuple2<String, Tuple2<String, Double>>> avgSpeedDay(Tuple2<String, Iterable<Tuple2<Double, Long>>> tuple) {
-        List<Tuple2<String, Tuple2<String, Double>>> result = new ArrayList<>();
+    private static List<Tuple2<String, Tuple2<Double, Double>>> avgSpeedDay(Tuple2<String, Iterable<Tuple2<Double, Long>>> tuple) {
+        List<Tuple2<String, Tuple2<Double, Double>>> result = new ArrayList<>();
         try {
             String[] parts = tuple._1().split(EUtils.TAB_DELIMITER);
             String arcId = parts[0];
             String dateName = parts[1];
-            String hour = parts[2];
+            Double hour = Double.parseDouble(parts[2]);
             String speedMax = parts[3];
             String key = new StringBuilder()
                     .append(arcId)
@@ -221,12 +310,12 @@ public class SpeedForRoadSegment extends SparkClient {
 //        }
 //        return result;
 //    }
-    private static List<Tuple2<String, Tuple2<String, Double>>> avgSpeed(Tuple2<String, Iterable<Tuple2<Double, Long>>> tuple) {
-        List<Tuple2<String, Tuple2<String, Double>>> result = new ArrayList<>();
+    private static List<Tuple2<String, Tuple2<Double, Double>>> avgSpeed(Tuple2<String, Iterable<Tuple2<Double, Long>>> tuple) {
+        List<Tuple2<String, Tuple2<Double, Double>>> result = new ArrayList<>();
         try {
             String[] parts = tuple._1().split(EUtils.TAB_DELIMITER, -1);
             String arcId = parts[0];
-            String hour = parts[1];
+            Double hour = Double.parseDouble(parts[1]);
             String speedMax = parts[2];
             Iterator<Tuple2<Double, Long>> iterator = tuple._2().iterator();
             double speed = 0.0;

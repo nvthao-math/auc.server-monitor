@@ -8,10 +8,15 @@ package org.auc.core.utils;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.auc.core.file.utils.Logger;
+import scala.Tuple2;
+import test.User;
 
 /**
  *
@@ -20,6 +25,7 @@ import org.auc.core.file.utils.Logger;
 public class EUtils {
 
     public static final String TAG = EUtils.class.getSimpleName();
+    public static final String NUMBER_PATTERN = "\\d*\\.?\\d+";
     public static Gson GSON = new Gson();
     public static Type TYPE_STRING_STRING = new TypeToken<Map<String, String>>() {
     }.getType();
@@ -48,37 +54,6 @@ public class EUtils {
             result.put(keyClass.cast(fields[0]), valueClass.cast(fields[1]));
         }
         return result;
-    }
-
-    public static void main(String[] args) {
-        String input = "jobName=read-speed-profiles,fromTime=2017-03-23-00,endTime=2017-03-23-23,synchTo=elastic_csv_parquet,realtime=false";
-        Map<String, String> map = string2Map(input, ",", String.class, String.class);
-        System.out.println(map);
-
-//        System.out.println("=====================");
-//        String staffJson = "[{\"name\":\"mkyong\"}, {\"name\":\"laplap\"}]";
-//        List<Staff> staffList = new ArrayList<>();
-//        Type staffType = new TypeToken<List<Staff>>() {
-//        }.getType();
-//        fromJson(staffJson, staffType, staffList);
-////        System.out.println(staffList);
-//        for (Staff staff : staffList) {
-////            Staff stt = (Staff) staff;
-//            System.out.println(staff.getName());
-//        }
-        //
-//        Map<String, Staff> mapStt = new HashMap<>();
-//        mapStt.put("01", new Staff("mkyong"));
-//        mapStt.put("02", new Staff("john"));
-//        mapStt.put("03", new Staff("lanh"));
-//        System.out.println(CommonUtils.toJson(mapStt));
-////        //
-//        String jsonMap = "{\"01\":{\"name\":\"mkyong\"},\"02\":{\"name\":\"john\"},\"03\":{\"name\":\"lanh\"}}";
-//        Map<String, Staff> map = new HashMap<>();
-//        Type type = new TypeToken<Map<String, Staff>>() {
-//        }.getType();
-//        fromJson(jsonMap, type, map);
-//        System.out.println(GSON.toJson(map));
     }
 
     public static <T> T fromJson(String json, Class<T> tclass) {
@@ -133,6 +108,66 @@ public class EUtils {
             Logger.error(TAG, ex);
         }
         return result;
+    }
+
+    public static Map.Entry firstElement(Map map) throws Exception {
+        if (map == null || map.isEmpty()) {
+            throw new IllegalArgumentException("Input Map not null or empty");
+        }
+        Map.Entry firstEntry = (Map.Entry) map.entrySet()
+                .iterator()
+                .next();
+        return firstEntry;
+    }
+
+    public static Object firstKey(Map map) throws Exception {
+        Map.Entry firstEntry = firstElement(map);
+        Object key = firstEntry.getKey();
+        return key; //  String value = entry.getValue();
+    }
+
+    public static Object firstValue(Map map) throws Exception {
+        Map.Entry firstEntry = firstElement(map);
+        Object firstValue = firstEntry.getValue();
+        return firstValue;
+    }
+
+    public static boolean isNumber(String str) {
+        boolean result = false;
+        if (str != null) {
+            result = str.matches(NUMBER_PATTERN);
+        }
+        return result;
+    }
+
+    public static <T1, T2> Iterable<Tuple2<T1, T2>> asIterable(Map<T1, T2> map) {
+        Iterable<Tuple2<T1, T2>> result;
+        List<Tuple2<T1, T2>> list = new ArrayList<>();
+        map.keySet().forEach((key) -> {
+            T2 value = map.get(key);
+            list.add(new Tuple2(key, value));
+        });
+        final Iterator<Tuple2<T1, T2>> iterator = list.iterator();
+        result = () -> iterator;
+        return result;
+    }
+
+//    public static <E> Iterable<E> iterable(final Iterator<E> iterator) {
+//        if (iterator == null) {
+//            throw new NullPointerException();
+//        }
+//        return new Iterable<E>() {
+//            public Iterator<E> iterator() {
+//                return iterator;
+//            }
+//        };
+//    }
+    public static void main(String[] args) throws Exception {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("123", 12);
+//        map.put("456", 14);
+        int val = Collections.max(map.values());
+        System.out.println(val);
     }
 
 }

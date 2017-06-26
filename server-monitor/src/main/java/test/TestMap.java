@@ -8,6 +8,7 @@ package test;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 /**
@@ -17,14 +18,22 @@ import java.util.stream.Collectors;
 public class TestMap {
 
     public static void main(String[] args) {
-        String input = "jobName=read-speed-profiles,fromTime=2017-03-23-00,endTime=2017-03-23-23,synchTo=elastic_csv_parquet,realtime=false";
-        Map<String, String> result = Arrays.stream(input.split(","))
-                .map(s -> s.split("="))
-                .collect(Collectors.toMap(
-                        a -> a[0], //key
-                        a -> a[1] //value
-                ));
-        System.out.println(result);
+        for (int i = 1; i < 10; i++) {
+            Map<String, Double> hashMap = new HashMap<>();
+            Map<String, Double> treeMap = new TreeMap<>();
+            hashMap.put("10", 1d);
+            hashMap.put("01", 1d);
+            hashMap.put("21", 1d);
+            //
+            treeMap.put("10", 1d);
+            treeMap.put("01", 1d);
+            treeMap.put("21", 4d);
+            //
+            System.out.println(hashMap);
+            System.out.println(treeMap);
+            System.out.println(treeMap.values().toArray()[treeMap.size() - 1]);
+        }
+
     }
 
 }

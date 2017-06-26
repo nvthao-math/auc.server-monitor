@@ -5,6 +5,9 @@
  */
 package org.auc.gps.speed.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author thaonv
@@ -30,5 +33,26 @@ public class SpeedSchema {
     public static final int SPEED_UPPER = 110;
     public static final int TIME_ACTIVE_LOWER = 07;
     public static final int TIME_ACTIVE_UPPER = 21;
+    public static final double SPEED_DEFAULT = 0.0;
+    // data 
+    public static final List<Double> SPECIAL_TIME = new ArrayList<>();
+    public static final List<Double> NORMAL_TIME = new ArrayList<>();
+
+    static {
+        _initialize();
+    }
+
+    private static void _initialize() {
+        // special time
+        for (double i = 0; i < 7; i++) {
+            SPECIAL_TIME.add(i);
+        }
+        SPECIAL_TIME.add(22d);
+        SPECIAL_TIME.add(23d);
+        // normal time
+        for (double i = 7; i < 22; i++) {
+            NORMAL_TIME.add(i);
+        }
+    }
 
 }

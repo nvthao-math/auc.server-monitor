@@ -22,6 +22,10 @@ public class User {
         super();
     }
 
+    public User(String name) {
+        this.username = name;
+    }
+
     /**
      * @return the username
      */
