@@ -1,4 +1,4 @@
-package org.core.util.network;
+package org.auc.core.util.network;
 
 ///*
 // * To change this license header, choose License Headers in Project Properties.
