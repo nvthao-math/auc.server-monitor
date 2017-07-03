@@ -30,8 +30,8 @@ public abstract class HakiriExecutor<T> {
     // attributes
     private HikariDataSource hds;
     private String prepareStatement;
-    private Connection con;
-    private PreparedStatement pstm;
+    protected Connection con;
+    protected PreparedStatement pstm;
     protected ResultSet rs;
 
     // constructor
@@ -58,13 +58,12 @@ public abstract class HakiriExecutor<T> {
         return HAKIRI_CONF;
     }
 
-    protected T run() {
+    public T run() {
         T result = null;
         try {
             this.hds = new HikariDataSource(initHikariConfig());
             con = this.hds.getConnection();
             pstm = con.prepareStatement(this.prepareStatement);
-            rs = pstm.executeQuery();
             // manual code here
             result = build();
         } catch (Exception ex) {

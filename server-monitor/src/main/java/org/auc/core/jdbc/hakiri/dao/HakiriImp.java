@@ -17,11 +17,15 @@ public class HakiriImp {
         String statement = "SELECT * FROM Cars";
         HakiriExecutor<String> executor = new HakiriExecutor<String>(statement) {
             @Override
-            protected String build() throws SQLException {
+            protected String build() {
                 StringBuilder sb = new StringBuilder();
-                while (this.rs.next()) {
-                    sb.append(String.format("%d %s %d", this.rs.getInt(1), this.rs.getString(2), this.rs.getInt(3)))
-                            .append("\n");
+                try {
+                    while (this.rs.next()) {
+                        sb.append(String.format("%d %s %d", this.rs.getInt(1), this.rs.getString(2), this.rs.getInt(3)))
+                                .append("\n");
+                    }
+                } catch (Exception ex) {
+                    System.out.println(ex);
                 }
                 return sb.toString();
             }
